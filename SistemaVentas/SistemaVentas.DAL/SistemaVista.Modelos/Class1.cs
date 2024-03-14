@@ -1,4 +1,4 @@
-﻿namespace SistemaVista.Modelos
+﻿namespace SistemaVentas.Modelos
 {
     public class Class1
     {

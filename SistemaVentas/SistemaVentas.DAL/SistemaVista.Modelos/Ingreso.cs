@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaVista.Modelos
+namespace SistemaVentas.Modelos
 {
     public class Ingreso
     {
