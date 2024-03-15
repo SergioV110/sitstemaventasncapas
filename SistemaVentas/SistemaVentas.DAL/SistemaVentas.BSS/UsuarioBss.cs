@@ -1,4 +1,5 @@
 ﻿using SistemaVentas.DAL;
+using SistemaVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,10 @@ namespace SistemaVentas.BSS
         public DataTable ListarUsuarioBss()
         {
             return dal.ListarUsuariosDal();
+        }
+        public void InsertarUsuarioBss(Usuario usuario)
+        {
+            dal.InsertarUsuarioDal(usuario);
         }
     }
 }
