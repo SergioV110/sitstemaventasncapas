@@ -26,5 +26,15 @@ namespace SistemaVentas.DAL
                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
+        public DataTable DetalleVentaDatosDal()
+        {
+            string consulta = "SELECT DETALLEVENTA.IDDETALLEVENTA, VENTA.FECHA, PRODUCTO.NOMBRE NOMBRE_PRODUCTO, PRODUCTO.CODIGOBARRA," +
+                " DETALLEVENTA.CANTIDAD, DETALLEVENTA.PRECIOVENTA, DETALLEVENTA.SUBTOTAL, DETALLEVENTA.ESTADO " +
+                " FROM     DETALLEVENTA INNER JOIN     " +
+                "          VENTA ON DETALLEVENTA.IDVENTA = VENTA.IDVENTA INNER JOIN    " +
+                "          PRODUCTO ON DETALLEVENTA.IDPRODUCTO = PRODUCTO.IDPRODUCTO ";
+            return conexion.EjecutarDataTabla(consulta, "fcdf");
+
+        }
     }
 }

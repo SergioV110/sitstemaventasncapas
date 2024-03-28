@@ -22,8 +22,17 @@ namespace SistemaVentas.DAL
                                                          venta.IdVendedor + "," +
                                                          "'" +venta.Fecha + "'," +
                                                          "'" + venta.Total + "'," +
-                                                         "'Activo')";
+                                                         "'Exitoso')";
             conexion.Ejecutar(consulta);
+        }
+        public DataTable VentaDatosDal()
+        {
+            string consulta = "SELECT VENTA.IDVENTA, CLIENTE.TIPOCLIENTE, USUARIO.NOMBREUSER, VENTA.FECHA, VENTA.TOTAL, VENTA.ESTADO" +
+                " FROM     VENTA INNER JOIN                  " +
+                " CLIENTE ON VENTA.IDCLIENTE = CLIENTE.IDCLIENTE INNER JOIN     " +
+                "            USUARIO ON VENTA.IDVENDEDOR = USUARIO.IDUSUARIO";
+            return conexion.EjecutarDataTabla(consulta, "fcdf");
+
         }
     }
 }

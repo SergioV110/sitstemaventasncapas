@@ -20,5 +20,9 @@ namespace SistemaVentas.BSS
         {
             dal.InsertarClienteDal(cliente);
         }
+        public DataTable ClienteDatosBss()
+        {
+            return dal.ClienteDatosDal();
+        }
     }
 }

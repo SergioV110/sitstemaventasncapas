@@ -20,5 +20,9 @@ namespace SistemaVentas.BSS
         {
             dal.InsertarProveeDal(provee);
         }
+        public DataTable ProveeDatosBss()
+        {
+            return dal.ProveeDatosDal();
+        }
     }
 }

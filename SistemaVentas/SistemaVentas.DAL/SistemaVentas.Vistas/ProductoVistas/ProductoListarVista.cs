@@ -20,7 +20,7 @@ namespace SistemaVentas.Vistas.ProductoVistas
         ProductoBss bss = new ProductoBss();
         private void ProductoListarVista_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = bss.ListarPersonaBss();
+            dataGridView1.DataSource = bss.ListarProductoBss();
         }
     }
 }

@@ -28,5 +28,16 @@ namespace SistemaVentas.DAL
                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
+        public DataTable DetalleIngDatosDal()
+        {
+            string consulta = "SELECT DETALLEING.IDDETALLEING, PRODUCTO.NOMBRE NOMRE_PRODUCTO, PRODUCTO.CODIGOBARRA, PRODUCTO.UNIDAD, " +
+                " INGRESO.FECHAINGRESO, INGRESO.TOTAL, DETALLEING.CANTIDAD, DETALLEING.PRECIOCOSTO, DETALLEING.PRECIOVENTA," +
+                " DETALLEING.SUBTOTAL, DETALLEING.ESTADO " +
+                " FROM     DETALLEING INNER JOIN     " +
+                "          PRODUCTO ON DETALLEING.IDPRODUCTO = PRODUCTO.IDPRODUCTO INNER JOIN         " +
+                "          INGRESO ON DETALLEING.IDINGRESO = INGRESO.IDINGRESO";
+            return conexion.EjecutarDataTabla(consulta, "fcdf");
+
+        }
     }
 }

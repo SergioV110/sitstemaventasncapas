@@ -24,5 +24,14 @@ namespace SistemaVentas.DAL
                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
+        public DataTable IngresoDatosDal()
+        {
+            string consulta = "SELECT INGRESO.IDINGRESO, PROVEEDOR.NOMBRE, PROVEEDOR.TELEFONO, INGRESO.FECHAINGRESO, INGRESO.TOTAL," +
+                " INGRESO.ESTADO " +
+                " FROM     INGRESO INNER JOIN     " +
+                "          PROVEEDOR ON INGRESO.IDPROVEEDOR = PROVEEDOR.IDPROVEEDOR";
+            return conexion.EjecutarDataTabla(consulta, "fcdf");
+
+        }
     }
 }

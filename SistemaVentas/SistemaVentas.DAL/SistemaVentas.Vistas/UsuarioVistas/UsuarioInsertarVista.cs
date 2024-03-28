@@ -29,11 +29,16 @@ namespace SistemaVentas.Vistas.UsuarioVistas
             Usuario u = new Usuario();
             u.IdPersona = Convert.ToInt32(textBox1.Text);
             u.NombreUser = textBox2.Text;
-            u.Contraseña = Convert.ToInt32( textBox3.Text);
+            u.Contraseña = textBox3.Text;
             u.FechaReg = dateTimePicker1.Value;
 
             bss.InsertarUsuarioBss(u);
             MessageBox.Show("Se a guardado correctamente el usuario");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

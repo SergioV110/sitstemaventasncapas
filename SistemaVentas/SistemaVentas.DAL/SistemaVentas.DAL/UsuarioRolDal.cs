@@ -19,10 +19,19 @@ namespace SistemaVentas.DAL
         public void InsertarUsuarioRolDal(UsuarioRol usuarioRol)
         {
             string consulta = "insert into usuariorol values(" + usuarioRol.IdUsuario + "," +
-                                                         usuarioRol.IdRol + "," +
+                                                        ""+ usuarioRol.IdRol + "," +
                                                          "'" + usuarioRol.FechaAsigna + "'," +
                                                          "'Activo')";
             conexion.Ejecutar(consulta);
+        }
+        public DataTable UsurioRolDatosDal()
+        {
+            string consulta = "SELECT USUARIOROL.IDUSUARIOROL, USUARIO.NOMBREUSER, ROL.NOMBRE, USUARIOROL.FECHAASIGNA, ROL.ESTADO " +
+                "    FROM     USUARIOROL INNER JOIN " +
+                "    USUARIO ON USUARIOROL.IDUSUARIO = USUARIO.IDUSUARIO INNER JOIN " +
+                "    ROL ON USUARIOROL.IDROL = ROL.IDROL ";
+            return conexion.EjecutarDataTabla(consulta, "fcdf");
+
         }
     }
 }

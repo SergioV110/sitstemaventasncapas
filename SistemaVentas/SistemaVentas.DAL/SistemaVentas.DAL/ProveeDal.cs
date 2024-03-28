@@ -19,11 +19,21 @@ namespace SistemaVentas.DAL
         public void InsertarProveeDal(Provee provee)
         {
             string consulta = "insert into provee values(" + provee.IdProducto + "," +
-                                                         provee.IdProveedor + "," +
+                                                           provee.IdProveedor + "," +
                                                          "'" + provee.Fecha + "'," +
-                                                         "'" + provee.Precio + "'," +
-                                                         "'Activo')";
+                                                         "'" + provee.Precio + "')";
+                                                         
             conexion.Ejecutar(consulta);
+        }
+        public DataTable ProveeDatosDal()
+        {
+            string consulta = "SELECT PROVEE.IDPROVEE, PRODUCTO.NOMBRE NOMBRE_PRODUCTO, PRODUCTO.UNIDAD, PROVEEDOR.NOMBRE AS NOMBRE_PROVEE, " +
+                " PROVEEDOR.TELEFONO, PROVEE.FECHA, PROVEE.PRECIO " +
+                " FROM     PROVEE INNER JOIN " +
+                "          PRODUCTO ON PROVEE.IDPRODUCTO = PRODUCTO.IDPRODUCTO INNER JOIN    " +
+                "          PROVEEDOR ON PROVEE.IDPROVEEDOR = PROVEEDOR.IDPROVEEDOR";
+            return conexion.EjecutarDataTabla(consulta, "fcdf");
+
         }
     }
 }
