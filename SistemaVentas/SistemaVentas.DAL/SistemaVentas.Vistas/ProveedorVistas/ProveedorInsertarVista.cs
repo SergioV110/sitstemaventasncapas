@@ -28,7 +28,7 @@ namespace SistemaVentas.Vistas.ProveedorVistas
         {
             Proveedor p = new Proveedor();
             p.Nombre = textBox1.Text;
-            p.Telefono = Convert.ToInt32( textBox2.Text);
+            p.Telefono = textBox2.Text;
             p.Direccion = textBox3.Text;
 
             bss.InsertarProveedorBss(p);

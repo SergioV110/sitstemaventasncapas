@@ -20,6 +20,18 @@ namespace SistemaVentas.BSS
         {
             dal.InsertarUsuarioRolDal(usuarioRol);
         }
+        public UsuarioRol ObtenerUsuarioRolIdBss(int id)
+        {
+            return dal.ObtenerUsuarioRolIdDal(id);
+        }
+        public void EditarUsuarioRolBss(UsuarioRol ur)
+        {
+            dal.EditarUsuarioRolDal(ur);
+        }
+        public void EliminarUsuarioRolBss(int idusuariorol)
+        {
+            dal.EliminarUsuarioRolDal(idusuariorol);
+        }
         public DataTable UsuarioRolDatosBss()
         {
             return dal.UsurioRolDatosDal();

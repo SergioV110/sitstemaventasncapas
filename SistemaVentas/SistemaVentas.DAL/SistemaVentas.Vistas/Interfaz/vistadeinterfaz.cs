@@ -38,22 +38,35 @@ namespace SistemaVentas.Vistas.Interfaz
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+
+        private void label3_Click(object sender, EventArgs e)
         {
-            string usuario = textBox1.Text;
-            string contraseña = textBox2.Text;
-            if(conexion.VerificarCredenciales(usuario,contraseña))
-            {
-                MessageBox.Show("Inicio de sesion exitoso");
-                InterfazGerente formulario = new InterfazGerente();
-                formulario.Show();
-            }
-            else
-            {
-                MessageBox.Show("Usuario incorrecto");
-            }
-            /*InterfazGerente Abrir = new InterfazGerente();
-            Abrir.Show();*/
+
+        }
+        private Form activeform = null;
+        private void abrirformulariohijo(Form hijo)
+        {
+            if (activeform != null)
+                activeform.Close();
+            activeform = hijo;
+            hijo.TopLevel = false;
+            hijo.FormBorderStyle = FormBorderStyle.None;
+            hijo.Dock = DockStyle.Fill;
+            panelhijo.Controls.Add(hijo);
+            panelhijo.Tag = hijo;
+            hijo.BringToFront();
+            hijo.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            abrirformulariohijo(new SesionGerente());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            abrirformulariohijo(new SesionVendedor());
         }
     }
 }

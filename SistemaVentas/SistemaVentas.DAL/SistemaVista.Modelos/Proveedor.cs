@@ -10,7 +10,7 @@ namespace SistemaVentas.Modelos
     {
         public int IdProveedor { get; set; }
         public string Nombre { get; set; }
-        public int Telefono { get; set; }
+        public string Telefono { get; set; }
         public string Direccion {  get; set; }
         public string Estado {  get; set; }
     }

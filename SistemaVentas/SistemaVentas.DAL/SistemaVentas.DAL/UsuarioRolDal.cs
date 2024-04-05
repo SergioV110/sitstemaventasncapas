@@ -24,6 +24,34 @@ namespace SistemaVentas.DAL
                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
+        public UsuarioRol ObtenerUsuarioRolIdDal(int id)
+        {
+            string consulta = "SELECT * FROM usuariorol WHERE idusuariorol = " + id;
+            DataTable tabla = conexion.EjecutarDataTabla(consulta, "tabla");
+            UsuarioRol usuariorol = new UsuarioRol();
+            if (tabla.Rows.Count > 0)
+            {
+                usuariorol.IdUsuarioRol = Convert.ToInt32(tabla.Rows[0]["idusuariorol"]);
+                usuariorol.IdUsuario = Convert.ToInt32(tabla.Rows[0]["idusuario"]);
+                usuariorol.IdRol = Convert.ToInt32(tabla.Rows[0]["idrol"]);
+                usuariorol.FechaAsigna = Convert.ToDateTime(tabla.Rows[0]["fechaasigna"]);
+            }
+            return usuariorol;
+        }
+
+        public void EditarUsuarioRolDal(UsuarioRol ur)
+        {
+            string consulta = "UPDATE usuariorol SET idusuario = " + ur.IdUsuario.ToString() + ", idrol = " + ur.IdRol.ToString() + ", fechaasigna = " + ur.FechaAsigna.ToString()  + " WHERE idusuariorol = " + ur.IdUsuarioRol.ToString();
+            conexion.Ejecutar(consulta);
+        }
+
+        public void EliminarUsuarioRolDal(int idusuariorol)
+        {
+            string consulta = "DELETE FROM usuariorol WHERE idusuariorol = " + idusuariorol;
+            conexion.Ejecutar(consulta);
+        }
+
+
         public DataTable UsurioRolDatosDal()
         {
             string consulta = "SELECT USUARIOROL.IDUSUARIOROL, USUARIO.NOMBREUSER, ROL.NOMBRE, USUARIOROL.FECHAASIGNA, ROL.ESTADO " +
